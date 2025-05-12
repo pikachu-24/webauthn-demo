@@ -88,6 +88,9 @@ let startNormalRequest = () => {
       challenge: new Uint8Array([1, 2, 3, 4])
     },
   }).then(credential => {
+    
+      console.log(credential);
+        debugger;
     if (credential) {
       let username = String.fromCodePoint(...new Uint8Array(credential.response.userHandle));
       window.location = "site.html?username=" + username;
