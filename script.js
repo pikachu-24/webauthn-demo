@@ -64,8 +64,6 @@ let startConditionalRequest = async () => {
       mediation: "conditional"
     });
     if (credential) {
-      debugger;
-      console.log(credential);
       let username = String.fromCodePoint(...new Uint8Array(credential.response.userHandle));
       window.location = "site.html?username=" + username;
     } else {
@@ -89,11 +87,11 @@ let startNormalRequest = () => {
     },
   }).then(credential => {
     
-      console.log(credential);
+      console.log(credential.response.clientDataJSON);
         debugger;
     if (credential) {
       let username = String.fromCodePoint(...new Uint8Array(credential.response.userHandle));
-      window.location = "site.html?username=" + username;
+      // window.location = "site.html?username=" + username;
     } else {
       showError("Credential returned null");
     }
