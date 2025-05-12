@@ -87,7 +87,12 @@ let startNormalRequest = () => {
     },
   }).then(credential => {
     
-      console.log(bufferEncode(credential.response.clientDataJSON));
+      const clientDataJSON = bufferEncode(credential.response.clientDataJSON);
+      const decodedStr = atob(clientDataJSON);
+
+          const decodedData = JSON.parse(decodedStr);
+
+          console.log(decodedData);
         debugger;
     if (credential) {
       let username = String.fromCodePoint(...new Uint8Array(credential.response.userHandle));
