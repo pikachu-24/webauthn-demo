@@ -1,6 +1,24 @@
 /* If you're feeling fancy you can add interactivity 
     to your site with Javascript */
 
+export function bufferEncode(buffer: any) {
+  // Buffer to binary string
+  const byteView = new Uint8Array(buffer);
+
+  const str = Array.from(byteView).map((byte) => String.fromCharCode(byte)).join('');
+
+  // Binary string to base64
+  const base64String = btoa(str);
+
+  // Base64 to base64url
+  // We assume that the base64url string is well-formed.
+  const base64urlString = base64String
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=/g, '');
+  return base64urlString;
+}
+
 window.PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable().then(
   result => {
     if (!result) {
@@ -46,6 +64,7 @@ let startConditionalRequest = async () => {
       mediation: "conditional"
     });
     if (credential) {
+      console.log(credential);
       let username = String.fromCodePoint(...new Uint8Array(credential.response.userHandle));
       window.location = "site.html?username=" + username;
     } else {
