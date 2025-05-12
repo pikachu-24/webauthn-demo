@@ -1,7 +1,7 @@
 /* If you're feeling fancy you can add interactivity 
     to your site with Javascript */
 
-function bufferEncode(buffer: any) {
+function bufferEncode(buffer) {
   // Buffer to binary string
   const byteView = new Uint8Array(buffer);
 
