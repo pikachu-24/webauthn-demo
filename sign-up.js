@@ -10,7 +10,7 @@ document.getElementById("create-account").addEventListener("submit", event => {
       challenge: Uint8Array.from([1, 2, 3, 4]),
       rp: {
         name: "Conditional UI Example",
-        id: "https://webauthn-demo-git-main-pikachu-24s-projects.vercel.app",
+        id: "https://webauthn-demo-git-main-pikachu-24s-projects.vercel.app/create-account.html",
       },
       user: {
         id: Uint8Array.from(username.split("").map(c => c.codePointAt(0))),
