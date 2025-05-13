@@ -22,7 +22,7 @@ document.getElementById("create-account").addEventListener("submit", event => {
       { type: "public-key", alg: -7 },  // ES256
       { type: "public-key", alg: -257 }, // RS256
       ],
-      authenticatorSelection: {
+      authenticatorSelection: { 
         userVerification: "required",
         residentKey: "required",
         authenticatorAttachment: "cross-platform",
