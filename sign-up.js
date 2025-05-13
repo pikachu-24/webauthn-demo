@@ -20,7 +20,7 @@ document.getElementById("create-account").addEventListener("submit", event => {
       authenticatorSelection: {
         userVerification: "required",
         residentKey: "required",
-        authenticatorAttachment: "platform",
+        //authenticatorAttachment: "platform",
       },
     }
   }).then(credential => {
