@@ -9,23 +9,22 @@ document.getElementById("create-account").addEventListener("submit", event => {
       // i'm just lazy and don't want to code a server.
       challenge: Uint8Array.from([1, 2, 3, 4]),
       rp: {
-        name: "Conditional UI Example",
-        id: "https://webauthn-demo-git-main-pikachu-24s-projects.vercel.app/create-account.html",
+        name: "Conditional UI Example"
       },
       user: {
         id: Uint8Array.from(username.split("").map(c => c.codePointAt(0))),
         name: username,
         displayName: name,
       },
-       pubKeyCredParams: [
-    { type: "public-key", alg: -7 },  // ES256
-    { type: "public-key", alg: -257 }, // RS256
-  ],
-       timeout: 60000, // Try increasing timeout
-  attestation: "direct",
+      timeout: 60000, // Try increasing timeout
+      attestation: "direct",
+      pubKeyCredParams: [
+      { type: "public-key", alg: -7 },  // ES256
+      { type: "public-key", alg: -257 }, // RS256
+      ],
       authenticatorSelection: {
-        userVerification: "preffered",
-        requireResidentKey: true,
+        userVerification: "required",
+        residentKey: "required",
         authenticatorAttachment: "cross-platform",
       },
     }
